@@ -1,0 +1,1636 @@
+[
+    {
+        "name": "Google",
+        "slug": "google",
+        "website": "https://google.com",
+        "careers": "https://careers.google.com",
+        "country": "United States",
+        "region": "US",
+        "category": "MNC",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Google LLC is an American multinational technology company focusing on search engine technology, online advertising, cloud computing, and AI.",
+        "logo": "https://logo.clearbit.com/google.com"
+    },
+    {
+        "name": "Amazon",
+        "slug": "amazon",
+        "website": "https://amazon.com",
+        "careers": "https://www.amazon.jobs",
+        "country": "United States",
+        "region": "US",
+        "category": "MNC",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Amazon is a global technology and e-commerce company offering cloud computing (AWS), digital streaming, and AI services.",
+        "logo": "https://logo.clearbit.com/amazon.com"
+    },
+    {
+        "name": "Microsoft",
+        "slug": "microsoft",
+        "website": "https://microsoft.com",
+        "careers": "https://careers.microsoft.com",
+        "country": "United States",
+        "region": "US",
+        "category": "MNC",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Microsoft Corporation is an American multinational technology company producing software, electronics, and cloud services including Azure and Office.",
+        "logo": "https://logo.clearbit.com/microsoft.com"
+    },
+    {
+        "name": "Meta",
+        "slug": "meta",
+        "website": "https://meta.com",
+        "careers": "https://www.metacareers.com",
+        "country": "United States",
+        "region": "US",
+        "category": "MNC",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Meta Platforms builds technologies that help people connect, including Facebook, Instagram, WhatsApp, and the metaverse.",
+        "logo": "https://logo.clearbit.com/meta.com"
+    },
+    {
+        "name": "Apple",
+        "slug": "apple",
+        "website": "https://apple.com",
+        "careers": "https://jobs.apple.com",
+        "country": "United States",
+        "region": "US",
+        "category": "MNC",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Apple Inc. designs and sells consumer electronics, software, and online services including iPhone, Mac, and iOS.",
+        "logo": "https://logo.clearbit.com/apple.com"
+    },
+    {
+        "name": "Netflix",
+        "slug": "netflix",
+        "website": "https://netflix.com",
+        "careers": "https://jobs.netflix.com",
+        "country": "United States",
+        "region": "US",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time"
+        ],
+        "description": "Netflix is the world's leading streaming entertainment service, offering TV series, films, and games in 190+ countries.",
+        "logo": "https://logo.clearbit.com/netflix.com"
+    },
+    {
+        "name": "Stripe",
+        "slug": "stripe",
+        "website": "https://stripe.com",
+        "careers": "https://stripe.com/jobs",
+        "country": "United States",
+        "region": "US",
+        "category": "Fintech",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Stripe builds financial infrastructure for the internet — payment processing APIs used by millions of businesses worldwide.",
+        "logo": "https://logo.clearbit.com/stripe.com"
+    },
+    {
+        "name": "Cloudflare",
+        "slug": "cloudflare",
+        "website": "https://cloudflare.com",
+        "careers": "https://www.cloudflare.com/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "Cloud",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Cloudflare is a global network of servers that provides CDN, DDoS protection, and cybersecurity services for the web.",
+        "logo": "https://logo.clearbit.com/cloudflare.com"
+    },
+    {
+        "name": "Vercel",
+        "slug": "vercel",
+        "website": "https://vercel.com",
+        "careers": "https://vercel.com/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Vercel is a cloud platform for static sites and serverless functions, enabling developers to deploy frontend apps globally.",
+        "logo": "https://logo.clearbit.com/vercel.com"
+    },
+    {
+        "name": "GitHub",
+        "slug": "github",
+        "website": "https://github.com",
+        "careers": "https://github.com/about/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "GitHub is the world's largest software development platform, hosting Git repositories and offering CI/CD, Copilot AI, and collaboration tools.",
+        "logo": "https://logo.clearbit.com/github.com"
+    },
+    {
+        "name": "HashiCorp",
+        "slug": "hashicorp",
+        "website": "https://hashicorp.com",
+        "careers": "https://www.hashicorp.com/jobs",
+        "country": "United States",
+        "region": "Remote",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "HashiCorp provides infrastructure automation software including Terraform, Vault, and Consul used by enterprises worldwide.",
+        "logo": "https://logo.clearbit.com/hashicorp.com"
+    },
+    {
+        "name": "Databricks",
+        "slug": "databricks",
+        "website": "https://databricks.com",
+        "careers": "https://www.databricks.com/company/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "AI",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Databricks is a data and AI company that provides a Lakehouse platform for large-scale data engineering and machine learning.",
+        "logo": "https://logo.clearbit.com/databricks.com"
+    },
+    {
+        "name": "OpenAI",
+        "slug": "openai",
+        "website": "https://openai.com",
+        "careers": "https://openai.com/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "AI",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "OpenAI is an AI safety and research company behind GPT-4, ChatGPT, DALL-E, and the leading AI models used worldwide.",
+        "logo": "https://logo.clearbit.com/openai.com"
+    },
+    {
+        "name": "Anthropic",
+        "slug": "anthropic",
+        "website": "https://anthropic.com",
+        "careers": "https://www.anthropic.com/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "AI",
+        "hiringType": [
+            "Full-time"
+        ],
+        "description": "Anthropic is an AI safety company building Claude, a reliable and interpretable AI assistant for businesses and individuals.",
+        "logo": "https://logo.clearbit.com/anthropic.com"
+    },
+    {
+        "name": "Figma",
+        "slug": "figma",
+        "website": "https://figma.com",
+        "careers": "https://www.figma.com/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Figma is a collaborative interface design tool enabling teams to design, prototype, and handoff products in the browser.",
+        "logo": "https://logo.clearbit.com/figma.com"
+    },
+    {
+        "name": "Notion",
+        "slug": "notion",
+        "website": "https://notion.so",
+        "careers": "https://www.notion.so/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time"
+        ],
+        "description": "Notion is an all-in-one workspace for notes, wikis, databases, and project management used by millions of teams.",
+        "logo": "https://logo.clearbit.com/notion.so"
+    },
+    {
+        "name": "Linear",
+        "slug": "linear",
+        "website": "https://linear.app",
+        "careers": "https://linear.app/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Linear is a modern project management tool built for high-performance software teams with a keyboard-first, fast interface.",
+        "logo": "https://logo.clearbit.com/linear.app"
+    },
+    {
+        "name": "Supabase",
+        "slug": "supabase",
+        "website": "https://supabase.com",
+        "careers": "https://supabase.com/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Supabase is an open-source Firebase alternative providing Postgres database, authentication, storage, and edge functions.",
+        "logo": "https://logo.clearbit.com/supabase.com"
+    },
+    {
+        "name": "PlanetScale",
+        "slug": "planetscale",
+        "website": "https://planetscale.com",
+        "careers": "https://planetscale.com/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "Cloud",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "PlanetScale is a MySQL-compatible serverless database platform built on Vitess, designed for massive scale.",
+        "logo": "https://logo.clearbit.com/planetscale.com"
+    },
+    {
+        "name": "Twilio",
+        "slug": "twilio",
+        "website": "https://twilio.com",
+        "careers": "https://www.twilio.com/en-us/company/jobs",
+        "country": "United States",
+        "region": "US",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Twilio is a cloud communications platform providing APIs for SMS, voice, video, and email used by developers worldwide.",
+        "logo": "https://logo.clearbit.com/twilio.com"
+    },
+    {
+        "name": "Datadog",
+        "slug": "datadog",
+        "website": "https://datadoghq.com",
+        "careers": "https://www.datadoghq.com/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "Cloud",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Datadog is a monitoring and analytics platform for cloud-scale infrastructure, applications, and logs.",
+        "logo": "https://logo.clearbit.com/datadoghq.com"
+    },
+    {
+        "name": "Snowflake",
+        "slug": "snowflake",
+        "website": "https://snowflake.com",
+        "careers": "https://careers.snowflake.com",
+        "country": "United States",
+        "region": "US",
+        "category": "Cloud",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Snowflake is a cloud data platform enabling organizations to store, process, and analyze data at massive scale.",
+        "logo": "https://logo.clearbit.com/snowflake.com"
+    },
+    {
+        "name": "GitLab",
+        "slug": "gitlab",
+        "website": "https://gitlab.com",
+        "careers": "https://about.gitlab.com/jobs",
+        "country": "United States",
+        "region": "Remote",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "GitLab is a complete DevOps platform covering source control, CI/CD, security, and monitoring in a single application.",
+        "logo": "https://logo.clearbit.com/gitlab.com"
+    },
+    {
+        "name": "Atlassian",
+        "slug": "atlassian",
+        "website": "https://atlassian.com",
+        "careers": "https://www.atlassian.com/company/careers",
+        "country": "Australia",
+        "region": "Remote",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Atlassian builds team collaboration software including Jira, Confluence, Trello, and Bitbucket for software development teams.",
+        "logo": "https://logo.clearbit.com/atlassian.com"
+    },
+    {
+        "name": "Shopify",
+        "slug": "shopify",
+        "website": "https://shopify.com",
+        "careers": "https://www.shopify.com/careers",
+        "country": "Canada",
+        "region": "Remote",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Shopify is a leading e-commerce platform enabling businesses to sell online, in-store, and everywhere in between.",
+        "logo": "https://logo.clearbit.com/shopify.com"
+    },
+    {
+        "name": "Coinbase",
+        "slug": "coinbase",
+        "website": "https://coinbase.com",
+        "careers": "https://www.coinbase.com/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "Web3",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Coinbase is a leading cryptocurrency exchange platform offering trading, custody, and blockchain developer services.",
+        "logo": "https://logo.clearbit.com/coinbase.com"
+    },
+    {
+        "name": "Alchemy",
+        "slug": "alchemy",
+        "website": "https://alchemy.com",
+        "careers": "https://www.alchemy.com/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "Web3",
+        "hiringType": [
+            "Full-time"
+        ],
+        "description": "Alchemy is a blockchain developer platform providing APIs and infrastructure for building Web3 applications at scale.",
+        "logo": "https://logo.clearbit.com/alchemy.com"
+    },
+    {
+        "name": "Ripple",
+        "slug": "ripple",
+        "website": "https://ripple.com",
+        "careers": "https://ripple.com/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "Web3",
+        "hiringType": [
+            "Full-time"
+        ],
+        "description": "Ripple provides blockchain-based payment solutions enabling financial institutions to send money globally in seconds.",
+        "logo": "https://logo.clearbit.com/ripple.com"
+    },
+    {
+        "name": "Plaid",
+        "slug": "plaid",
+        "website": "https://plaid.com",
+        "careers": "https://plaid.com/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "Fintech",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Plaid provides APIs connecting consumer bank accounts to financial apps, powering thousands of fintech products.",
+        "logo": "https://logo.clearbit.com/plaid.com"
+    },
+    {
+        "name": "Brex",
+        "slug": "brex",
+        "website": "https://brex.com",
+        "careers": "https://www.brex.com/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "Fintech",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Brex is a financial technology company providing business credit cards, expense management, and banking for startups.",
+        "logo": "https://logo.clearbit.com/brex.com"
+    },
+    {
+        "name": "Robinhood",
+        "slug": "robinhood",
+        "website": "https://robinhood.com",
+        "careers": "https://careers.robinhood.com",
+        "country": "United States",
+        "region": "US",
+        "category": "Fintech",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Robinhood is a commission-free stock trading and investing platform making financial markets accessible to everyone.",
+        "logo": "https://logo.clearbit.com/robinhood.com"
+    },
+    {
+        "name": "Razorpay",
+        "slug": "razorpay",
+        "website": "https://razorpay.com",
+        "careers": "https://razorpay.com/jobs",
+        "country": "India",
+        "region": "India",
+        "category": "Fintech",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Razorpay is India's leading payment gateway and neobanking platform serving over 8 million businesses with payment solutions.",
+        "logo": "https://logo.clearbit.com/razorpay.com"
+    },
+    {
+        "name": "Zerodha",
+        "slug": "zerodha",
+        "website": "https://zerodha.com",
+        "careers": "https://zerodha.com/careers",
+        "country": "India",
+        "region": "India",
+        "category": "Fintech",
+        "hiringType": [
+            "Full-time"
+        ],
+        "description": "Zerodha is India's largest stock brokerage platform by active clients, offering discount brokerage and fintech products.",
+        "logo": "https://logo.clearbit.com/zerodha.com"
+    },
+    {
+        "name": "CRED",
+        "slug": "cred",
+        "website": "https://cred.club",
+        "careers": "https://careers.cred.club",
+        "country": "India",
+        "region": "India",
+        "category": "Fintech",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "CRED is an Indian fintech startup rewarding creditworthy users for paying credit card bills and offering financial products.",
+        "logo": "https://logo.clearbit.com/cred.club"
+    },
+    {
+        "name": "PhonePe",
+        "slug": "phonepe",
+        "website": "https://phonepe.com",
+        "careers": "https://phonepe.com/en-in/careers.html",
+        "country": "India",
+        "region": "India",
+        "category": "Fintech",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "PhonePe is India's leading digital payments platform with 500M+ registered users, offering UPI, insurance, and mutual funds.",
+        "logo": "https://logo.clearbit.com/phonepe.com"
+    },
+    {
+        "name": "Swiggy",
+        "slug": "swiggy",
+        "website": "https://swiggy.com",
+        "careers": "https://careers.swiggy.com",
+        "country": "India",
+        "region": "India",
+        "category": "Startup",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Swiggy is India's leading food delivery and quick commerce platform operating in 500+ cities across India.",
+        "logo": "https://logo.clearbit.com/swiggy.com"
+    },
+    {
+        "name": "Zomato",
+        "slug": "zomato",
+        "website": "https://zomato.com",
+        "careers": "https://www.zomato.com/careers",
+        "country": "India",
+        "region": "India",
+        "category": "Startup",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Zomato is a global restaurant aggregator and food delivery marketplace operating across India, UAE, and other markets.",
+        "logo": "https://logo.clearbit.com/zomato.com"
+    },
+    {
+        "name": "Meesho",
+        "slug": "meesho",
+        "website": "https://meesho.com",
+        "careers": "https://meesho.io/careers",
+        "country": "India",
+        "region": "India",
+        "category": "Startup",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Meesho is India's fastest-growing e-commerce marketplace empowering small businesses and individual resellers to sell online.",
+        "logo": "https://logo.clearbit.com/meesho.com"
+    },
+    {
+        "name": "Freshworks",
+        "slug": "freshworks",
+        "website": "https://freshworks.com",
+        "careers": "https://www.freshworks.com/company/careers",
+        "country": "India",
+        "region": "India",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Freshworks is a global SaaS company providing CRM, customer support (Freshdesk), and ITSM software for businesses of all sizes.",
+        "logo": "https://logo.clearbit.com/freshworks.com"
+    },
+    {
+        "name": "Zoho",
+        "slug": "zoho",
+        "website": "https://zoho.com",
+        "careers": "https://careers.zoho.com",
+        "country": "India",
+        "region": "India",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Zoho Corporation offers a comprehensive suite of 50+ SaaS products including CRM, Zoho One, and developer platforms.",
+        "logo": "https://logo.clearbit.com/zoho.com"
+    },
+    {
+        "name": "InfySys",
+        "slug": "infosys",
+        "website": "https://infosys.com",
+        "careers": "https://www.infosys.com/careers",
+        "country": "India",
+        "region": "India",
+        "category": "MNC",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Infosys is a global IT services and consulting company headquartered in Bangalore, India, serving Fortune 500 clients worldwide.",
+        "logo": "https://logo.clearbit.com/infosys.com"
+    },
+    {
+        "name": "Tata Consultancy Services",
+        "slug": "tcs",
+        "website": "https://www.tcs.com",
+        "careers": "https://www.tcs.com/careers",
+        "country": "India",
+        "region": "India",
+        "category": "MNC",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "TCS is a global IT services and consulting company and a subsidiary of the Tata Group, employing over 600,000 professionals.",
+        "logo": "https://logo.clearbit.com/tcs.com"
+    },
+    {
+        "name": "Wipro",
+        "slug": "wipro",
+        "website": "https://wipro.com",
+        "careers": "https://careers.wipro.com",
+        "country": "India",
+        "region": "India",
+        "category": "MNC",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Wipro is a leading global information technology, consulting, and business process services company headquartered in Bangalore.",
+        "logo": "https://logo.clearbit.com/wipro.com"
+    },
+    {
+        "name": "HCL Technologies",
+        "slug": "hcl",
+        "website": "https://hcltech.com",
+        "careers": "https://www.hcltech.com/careers",
+        "country": "India",
+        "region": "India",
+        "category": "MNC",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "HCL Technologies is a global IT services company delivering technology products and services across 50+ countries.",
+        "logo": "https://logo.clearbit.com/hcltech.com"
+    },
+    {
+        "name": "Ola",
+        "slug": "ola",
+        "website": "https://olacabs.com",
+        "careers": "https://ola.careers",
+        "country": "India",
+        "region": "India",
+        "category": "Startup",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Ola is India's largest ride-hailing platform operating in 250+ cities and expanding into electric vehicles globally.",
+        "logo": "https://logo.clearbit.com/olacabs.com"
+    },
+    {
+        "name": "Paytm",
+        "slug": "paytm",
+        "website": "https://paytm.com",
+        "careers": "https://paytm.com/careers",
+        "country": "India",
+        "region": "India",
+        "category": "Fintech",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Paytm is India's leading digital payments and financial services company offering a super-app for consumers and merchants.",
+        "logo": "https://logo.clearbit.com/paytm.com"
+    },
+    {
+        "name": "upGrad",
+        "slug": "upgrad",
+        "website": "https://upgrad.com",
+        "careers": "https://careers.upgrad.com",
+        "country": "India",
+        "region": "India",
+        "category": "Startup",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "upGrad is India's largest online higher education platform offering degrees and courses in tech, management, and law.",
+        "logo": "https://logo.clearbit.com/upgrad.com"
+    },
+    {
+        "name": "Groww",
+        "slug": "groww",
+        "website": "https://groww.in",
+        "careers": "https://careers.groww.in",
+        "country": "India",
+        "region": "India",
+        "category": "Fintech",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Groww is India's leading investment platform for mutual funds, stocks, ETFs, and fixed deposits with 50M+ users.",
+        "logo": "https://logo.clearbit.com/groww.in"
+    },
+    {
+        "name": "Postman",
+        "slug": "postman",
+        "website": "https://postman.com",
+        "careers": "https://www.postman.com/company/careers",
+        "country": "India",
+        "region": "India",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Postman is the world's leading API development platform used by 30M+ developers for designing, testing, and documenting APIs.",
+        "logo": "https://logo.clearbit.com/postman.com"
+    },
+    {
+        "name": "BrowserStack",
+        "slug": "browserstack",
+        "website": "https://browserstack.com",
+        "careers": "https://www.browserstack.com/careers",
+        "country": "India",
+        "region": "India",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "BrowserStack provides cloud web and mobile testing infrastructure, enabling developers to test across 3000+ real devices.",
+        "logo": "https://logo.clearbit.com/browserstack.com"
+    },
+    {
+        "name": "Hasura",
+        "slug": "hasura",
+        "website": "https://hasura.io",
+        "careers": "https://hasura.io/careers",
+        "country": "India",
+        "region": "Remote",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Hasura provides an instant GraphQL API engine on Postgres, enabling dev teams to build data-driven apps 10x faster.",
+        "logo": "https://logo.clearbit.com/hasura.io"
+    },
+    {
+        "name": "Sentry",
+        "slug": "sentry",
+        "website": "https://sentry.io",
+        "careers": "https://sentry.io/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Sentry is an application monitoring platform helping developers identify and fix errors in production code in real time.",
+        "logo": "https://logo.clearbit.com/sentry.io"
+    },
+    {
+        "name": "Docker",
+        "slug": "docker",
+        "website": "https://docker.com",
+        "careers": "https://www.docker.com/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Docker provides containerization technology and tools that enable developers to build, share, and run container-based apps.",
+        "logo": "https://logo.clearbit.com/docker.com"
+    },
+    {
+        "name": "Hugging Face",
+        "slug": "huggingface",
+        "website": "https://huggingface.co",
+        "careers": "https://apply.workable.com/huggingface",
+        "country": "United States",
+        "region": "Remote",
+        "category": "AI",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Hugging Face is the open-source AI hub providing the Transformers library and a model registry for the ML community.",
+        "logo": "https://logo.clearbit.com/huggingface.co"
+    },
+    {
+        "name": "Scale AI",
+        "slug": "scaleai",
+        "website": "https://scale.com",
+        "careers": "https://scale.com/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "AI",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Scale AI provides high-quality training data for AI models, partnering with leading AI labs and enterprise customers.",
+        "logo": "https://logo.clearbit.com/scale.com"
+    },
+    {
+        "name": "Cohere",
+        "slug": "cohere",
+        "website": "https://cohere.com",
+        "careers": "https://cohere.com/careers",
+        "country": "Canada",
+        "region": "Remote",
+        "category": "AI",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Cohere is an AI platform providing large language models and NLP tools for enterprises to build AI-powered products.",
+        "logo": "https://logo.clearbit.com/cohere.com"
+    },
+    {
+        "name": "Mistral AI",
+        "slug": "mistral",
+        "website": "https://mistral.ai",
+        "careers": "https://mistral.ai/jobs",
+        "country": "France",
+        "region": "Europe",
+        "category": "AI",
+        "hiringType": [
+            "Full-time"
+        ],
+        "description": "Mistral AI is a Paris-based AI company building open-source and commercial language models challenging GPT-4.",
+        "logo": "https://logo.clearbit.com/mistral.ai"
+    },
+    {
+        "name": "Stability AI",
+        "slug": "stabilityai",
+        "website": "https://stability.ai",
+        "careers": "https://stability.ai/careers",
+        "country": "United Kingdom",
+        "region": "Europe",
+        "category": "AI",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Stability AI is the company behind Stable Diffusion, an open-source image generation AI model used by millions.",
+        "logo": "https://logo.clearbit.com/stability.ai"
+    },
+    {
+        "name": "DeepMind",
+        "slug": "deepmind",
+        "website": "https://deepmind.google",
+        "careers": "https://deepmind.google/careers",
+        "country": "United Kingdom",
+        "region": "Europe",
+        "category": "AI",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Google DeepMind is a world-leading AI research lab building AI systems that benefit science and society, behind AlphaFold and Gemini.",
+        "logo": "https://logo.clearbit.com/deepmind.com"
+    },
+    {
+        "name": "Spotify",
+        "slug": "spotify",
+        "website": "https://spotify.com",
+        "careers": "https://www.lifeatspotify.com/jobs",
+        "country": "Sweden",
+        "region": "Europe",
+        "category": "MNC",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Spotify is the world's most popular audio streaming platform with 600M+ users, pioneering music and podcast discovery.",
+        "logo": "https://logo.clearbit.com/spotify.com"
+    },
+    {
+        "name": "Klarna",
+        "slug": "klarna",
+        "website": "https://klarna.com",
+        "careers": "https://jobs.klarna.com",
+        "country": "Sweden",
+        "region": "Europe",
+        "category": "Fintech",
+        "hiringType": [
+            "Full-time"
+        ],
+        "description": "Klarna is a Swedish fintech company offering buy-now-pay-later and payment solutions for millions of consumers globally.",
+        "logo": "https://logo.clearbit.com/klarna.com"
+    },
+    {
+        "name": "Adyen",
+        "slug": "adyen",
+        "website": "https://adyen.com",
+        "careers": "https://careers.adyen.com",
+        "country": "Netherlands",
+        "region": "Europe",
+        "category": "Fintech",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Adyen is a global payment company providing a single platform to accept payments online, in-app, and at point-of-sale.",
+        "logo": "https://logo.clearbit.com/adyen.com"
+    },
+    {
+        "name": "Zalando",
+        "slug": "zalando",
+        "website": "https://zalando.com",
+        "careers": "https://jobs.zalando.com",
+        "country": "Germany",
+        "region": "Europe",
+        "category": "MNC",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Zalando is Europe's leading online fashion platform operating in 25 European countries with 50M+ active customers.",
+        "logo": "https://logo.clearbit.com/zalando.com"
+    },
+    {
+        "name": "N26",
+        "slug": "n26",
+        "website": "https://n26.com",
+        "careers": "https://n26.com/en-eu/careers",
+        "country": "Germany",
+        "region": "Europe",
+        "category": "Fintech",
+        "hiringType": [
+            "Full-time"
+        ],
+        "description": "N26 is a German neobank offering fully digital banking services across Europe and the US with zero traditional branches.",
+        "logo": "https://logo.clearbit.com/n26.com"
+    },
+    {
+        "name": "Revolut",
+        "slug": "revolut",
+        "website": "https://revolut.com",
+        "careers": "https://www.revolut.com/careers",
+        "country": "United Kingdom",
+        "region": "Europe",
+        "category": "Fintech",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Revolut is a UK-based neobank and financial super-app offering banking, currency exchange, crypto, and investment services.",
+        "logo": "https://logo.clearbit.com/revolut.com"
+    },
+    {
+        "name": "Wise",
+        "slug": "wise",
+        "website": "https://wise.com",
+        "careers": "https://wise.jobs",
+        "country": "United Kingdom",
+        "region": "Europe",
+        "category": "Fintech",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Wise (formerly TransferWise) enables fast, cheap international money transfers and multi-currency accounts for global citizens.",
+        "logo": "https://logo.clearbit.com/wise.com"
+    },
+    {
+        "name": "Monzo",
+        "slug": "monzo",
+        "website": "https://monzo.com",
+        "careers": "https://monzo.com/careers",
+        "country": "United Kingdom",
+        "region": "Europe",
+        "category": "Fintech",
+        "hiringType": [
+            "Full-time"
+        ],
+        "description": "Monzo is a UK digital bank with 10M+ customers, known for instant notifications, money management tools, and transparent banking.",
+        "logo": "https://logo.clearbit.com/monzo.com"
+    },
+    {
+        "name": "Checkout.com",
+        "slug": "checkoutcom",
+        "website": "https://checkout.com",
+        "careers": "https://www.checkout.com/careers",
+        "country": "United Kingdom",
+        "region": "Europe",
+        "category": "Fintech",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Checkout.com is a global payments technology company handling billions in transactions for high-growth merchants worldwide.",
+        "logo": "https://logo.clearbit.com/checkout.com"
+    },
+    {
+        "name": "Contentful",
+        "slug": "contentful",
+        "website": "https://contentful.com",
+        "careers": "https://www.contentful.com/careers",
+        "country": "Germany",
+        "region": "Europe",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Contentful is the leading content infrastructure platform enabling teams to manage and deliver content across any channel.",
+        "logo": "https://logo.clearbit.com/contentful.com"
+    },
+    {
+        "name": "GetYourGuide",
+        "slug": "getyourguide",
+        "website": "https://getyourguide.com",
+        "careers": "https://careers.getyourguide.com",
+        "country": "Germany",
+        "region": "Europe",
+        "category": "Startup",
+        "hiringType": [
+            "Full-time"
+        ],
+        "description": "GetYourGuide is a Berlin-based travel experiences marketplace connecting travelers with tours, activities, and attractions.",
+        "logo": "https://logo.clearbit.com/getyourguide.com"
+    },
+    {
+        "name": "Personio",
+        "slug": "personio",
+        "website": "https://personio.com",
+        "careers": "https://www.personio.com/about-personio/careers",
+        "country": "Germany",
+        "region": "Europe",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time"
+        ],
+        "description": "Personio is Europe's leading HR software for SMEs, covering recruiting, payroll, absence management, and performance tracking.",
+        "logo": "https://logo.clearbit.com/personio.com"
+    },
+    {
+        "name": "Celonis",
+        "slug": "celonis",
+        "website": "https://celonis.com",
+        "careers": "https://www.celonis.com/careers",
+        "country": "Germany",
+        "region": "Europe",
+        "category": "AI",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Celonis is the global leader in process mining and process intelligence, helping enterprises optimize business operations with AI.",
+        "logo": "https://logo.clearbit.com/celonis.com"
+    },
+    {
+        "name": "EPAM Systems",
+        "slug": "epam",
+        "website": "https://epam.com",
+        "careers": "https://www.epam.com/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "MNC",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "EPAM Systems provides software engineering and IT consulting services with 60,000+ engineers across Europe and the Americas.",
+        "logo": "https://logo.clearbit.com/epam.com"
+    },
+    {
+        "name": "Basecamp",
+        "slug": "basecamp",
+        "website": "https://basecamp.com",
+        "careers": "https://basecamp.com/about/jobs",
+        "country": "United States",
+        "region": "Remote",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Basecamp is a remote-first company building project management and team communication tools used by hundreds of thousands of teams.",
+        "logo": "https://logo.clearbit.com/basecamp.com"
+    },
+    {
+        "name": "Buffer",
+        "slug": "buffer",
+        "website": "https://buffer.com",
+        "careers": "https://buffer.com/journey",
+        "country": "United States",
+        "region": "Remote",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Buffer is a fully remote social media management platform helping businesses schedule, publish, and analyze social posts.",
+        "logo": "https://logo.clearbit.com/buffer.com"
+    },
+    {
+        "name": "Automattic",
+        "slug": "automattic",
+        "website": "https://automattic.com",
+        "careers": "https://automattic.com/work-with-us",
+        "country": "United States",
+        "region": "Remote",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Automattic is the company behind WordPress.com, Woo, Tumblr, and Jetpack, operating as a fully distributed global team.",
+        "logo": "https://logo.clearbit.com/automattic.com"
+    },
+    {
+        "name": "Doist",
+        "slug": "doist",
+        "website": "https://doist.com",
+        "careers": "https://doist.com/jobs",
+        "country": "Portugal",
+        "region": "Remote",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Doist is a fully remote company building Todoist and Twist, productivity tools used by millions worldwide.",
+        "logo": "https://logo.clearbit.com/doist.com"
+    },
+    {
+        "name": "Whereby",
+        "slug": "whereby",
+        "website": "https://whereby.com",
+        "careers": "https://whereby.com/information/careers",
+        "country": "Norway",
+        "region": "Europe",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Whereby is a Norwegian video meeting platform enabling simple browser-based video calls without any downloads required.",
+        "logo": "https://logo.clearbit.com/whereby.com"
+    },
+    {
+        "name": "Pitch",
+        "slug": "pitch",
+        "website": "https://pitch.com",
+        "careers": "https://pitch.com/careers",
+        "country": "Germany",
+        "region": "Europe",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time"
+        ],
+        "description": "Pitch is a Berlin-based collaborative presentation software for modern teams, seen as the Figma for presentations.",
+        "logo": "https://logo.clearbit.com/pitch.com"
+    },
+    {
+        "name": "Remote",
+        "slug": "remote",
+        "website": "https://remote.com",
+        "careers": "https://remote.com/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Remote is a global HR platform helping companies hire, manage, and pay employees and contractors across the world.",
+        "logo": "https://logo.clearbit.com/remote.com"
+    },
+    {
+        "name": "Deel",
+        "slug": "deel",
+        "website": "https://deel.com",
+        "careers": "https://www.deel.com/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Deel is the all-in-one global HR platform enabling companies to hire anyone anywhere with compliant payroll and contracts.",
+        "logo": "https://logo.clearbit.com/deel.com"
+    },
+    {
+        "name": "Loom",
+        "slug": "loom",
+        "website": "https://loom.com",
+        "careers": "https://www.loom.com/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Loom is an async video messaging tool letting teams communicate faster than meetings and clearer than text.",
+        "logo": "https://logo.clearbit.com/loom.com"
+    },
+    {
+        "name": "Weights & Biases",
+        "slug": "wandb",
+        "website": "https://wandb.ai",
+        "careers": "https://wandb.ai/site/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "AI",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Weights & Biases provides MLOps tools for tracking experiments, visualizing models, and collaborating on ML projects.",
+        "logo": "https://logo.clearbit.com/wandb.ai"
+    },
+    {
+        "name": "Replit",
+        "slug": "replit",
+        "website": "https://replit.com",
+        "careers": "https://replit.com/site/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Replit is a collaborative online IDE enabling developers to code, run, and deploy apps directly in the browser.",
+        "logo": "https://logo.clearbit.com/replit.com"
+    },
+    {
+        "name": "Railway",
+        "slug": "railway",
+        "website": "https://railway.app",
+        "careers": "https://railway.app/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Railway is a deployment platform making it instant to spin up infrastructure, deploy apps, and manage databases.",
+        "logo": "https://logo.clearbit.com/railway.app"
+    },
+    {
+        "name": "Fly.io",
+        "slug": "flyio",
+        "website": "https://fly.io",
+        "careers": "https://fly.io/jobs",
+        "country": "United States",
+        "region": "Remote",
+        "category": "Cloud",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Fly.io deploys full-stack apps and databases close to users around the world with a developer-friendly global edge platform.",
+        "logo": "https://logo.clearbit.com/fly.io"
+    },
+    {
+        "name": "Retool",
+        "slug": "retool",
+        "website": "https://retool.com",
+        "careers": "https://retool.com/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Retool is a low-code platform enabling developers to build internal tools and admin panels 10x faster.",
+        "logo": "https://logo.clearbit.com/retool.com"
+    },
+    {
+        "name": "Temporal",
+        "slug": "temporal",
+        "website": "https://temporal.io",
+        "careers": "https://temporal.io/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Temporal is an open-source workflow orchestration platform making distributed systems resilient and reliable for developers.",
+        "logo": "https://logo.clearbit.com/temporal.io"
+    },
+    {
+        "name": "Neon",
+        "slug": "neon",
+        "website": "https://neon.tech",
+        "careers": "https://neon.tech/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "Cloud",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Neon provides serverless Postgres with autoscaling, database branching, and instant provisioning for modern developers.",
+        "logo": "https://logo.clearbit.com/neon.tech"
+    },
+    {
+        "name": "Turso",
+        "slug": "turso",
+        "website": "https://turso.tech",
+        "careers": "https://turso.tech/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Turso offers edge databases powered by libSQL, enabling developers to deploy SQLite-compatible databases at the edge.",
+        "logo": "https://logo.clearbit.com/turso.tech"
+    },
+    {
+        "name": "Glean",
+        "slug": "glean",
+        "website": "https://glean.com",
+        "careers": "https://www.glean.com/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "AI",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Glean is an enterprise AI search and knowledge management platform connecting all company data for instant retrieval.",
+        "logo": "https://logo.clearbit.com/glean.com"
+    },
+    {
+        "name": "Pendo",
+        "slug": "pendo",
+        "website": "https://pendo.io",
+        "careers": "https://www.pendo.io/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time"
+        ],
+        "description": "Pendo is a product analytics and user guidance platform enabling teams to understand user behavior and improve their products.",
+        "logo": "https://logo.clearbit.com/pendo.io"
+    },
+    {
+        "name": "Amplitude",
+        "slug": "amplitude",
+        "website": "https://amplitude.com",
+        "careers": "https://amplitude.com/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Amplitude is a digital analytics platform helping product teams understand user behavior and build better products.",
+        "logo": "https://logo.clearbit.com/amplitude.com"
+    },
+    {
+        "name": "Segment",
+        "slug": "segment",
+        "website": "https://segment.com",
+        "careers": "https://www.twilio.com/en-us/company/jobs",
+        "country": "United States",
+        "region": "US",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time"
+        ],
+        "description": "Segment (now part of Twilio) is the leading customer data platform collecting, cleaning, and routing user data to any tool.",
+        "logo": "https://logo.clearbit.com/segment.com"
+    },
+    {
+        "name": "Grafana Labs",
+        "slug": "grafanalabs",
+        "website": "https://grafana.com",
+        "careers": "https://grafana.com/about/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Grafana Labs provides the leading open-source observability platform for visualizing metrics, logs, and traces.",
+        "logo": "https://logo.clearbit.com/grafana.com"
+    },
+    {
+        "name": "Elastic",
+        "slug": "elastic",
+        "website": "https://elastic.co",
+        "careers": "https://www.elastic.co/about/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "Cloud",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Elastic provides the Elasticsearch platform for search, observability, and security powered by AI-driven analytics.",
+        "logo": "https://logo.clearbit.com/elastic.co"
+    },
+    {
+        "name": "Confluent",
+        "slug": "confluent",
+        "website": "https://confluent.io",
+        "careers": "https://www.confluent.io/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "Cloud",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Confluent provides a fully managed Apache Kafka cloud service and data streaming platform for real-time applications.",
+        "logo": "https://logo.clearbit.com/confluent.io"
+    },
+    {
+        "name": "Redis",
+        "slug": "redis",
+        "website": "https://redis.io",
+        "careers": "https://redis.io/company/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "Cloud",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Redis provides an open-source, in-memory data structure store used as a database, cache, and message broker globally.",
+        "logo": "https://logo.clearbit.com/redis.io"
+    },
+    {
+        "name": "MongoDB",
+        "slug": "mongodb",
+        "website": "https://mongodb.com",
+        "careers": "https://www.mongodb.com/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "Cloud",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "MongoDB is the leading NoSQL database provider offering Atlas cloud database and developer tools for modern applications.",
+        "logo": "https://logo.clearbit.com/mongodb.com"
+    },
+    {
+        "name": "Airtable",
+        "slug": "airtable",
+        "website": "https://airtable.com",
+        "careers": "https://airtable.com/careers",
+        "country": "United States",
+        "region": "US",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Internships"
+        ],
+        "description": "Airtable is a cloud collaboration platform combining the simplicity of a spreadsheet with the power of a database.",
+        "logo": "https://logo.clearbit.com/airtable.com"
+    },
+    {
+        "name": "ClickHouse",
+        "slug": "clickhouse",
+        "website": "https://clickhouse.com",
+        "careers": "https://clickhouse.com/company/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "Cloud",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "ClickHouse provides an open-source column-oriented database for real-time analytical queries on massive data volumes.",
+        "logo": "https://logo.clearbit.com/clickhouse.com"
+    },
+    {
+        "name": "Netlify",
+        "slug": "netlify",
+        "website": "https://netlify.com",
+        "careers": "https://www.netlify.com/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Netlify is a web development platform enabling teams to build, deploy, and scale modern web apps with global CDN.",
+        "logo": "https://logo.clearbit.com/netlify.com"
+    },
+    {
+        "name": "1Password",
+        "slug": "1password",
+        "website": "https://1password.com",
+        "careers": "https://1password.com/careers",
+        "country": "Canada",
+        "region": "Remote",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "1Password is the world's most loved password manager trusted by 150,000+ businesses for securing team credentials.",
+        "logo": "https://logo.clearbit.com/1password.com"
+    },
+    {
+        "name": "ngrok",
+        "slug": "ngrok",
+        "website": "https://ngrok.com",
+        "careers": "https://ngrok.com/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "ngrok provides a globally distributed reverse proxy fronting your web services running in any cloud or on-premise environment.",
+        "logo": "https://logo.clearbit.com/ngrok.com"
+    },
+    {
+        "name": "Sanity",
+        "slug": "sanity",
+        "website": "https://sanity.io",
+        "careers": "https://www.sanity.io/careers",
+        "country": "Norway",
+        "region": "Europe",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Sanity is a composable content platform and headless CMS powering some of the world's most ambitious digital experiences.",
+        "logo": "https://logo.clearbit.com/sanity.io"
+    },
+    {
+        "name": "Prisma",
+        "slug": "prisma",
+        "website": "https://prisma.io",
+        "careers": "https://www.prisma.io/careers",
+        "country": "Germany",
+        "region": "Remote",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Prisma is the next-generation Node.js and TypeScript ORM for Postgres, MySQL, SQLite, MongoDB, and more.",
+        "logo": "https://logo.clearbit.com/prisma.io"
+    },
+    {
+        "name": "tRPC",
+        "slug": "trpc",
+        "website": "https://trpc.io",
+        "careers": "https://github.com/trpc/trpc",
+        "country": "Remote",
+        "region": "Remote",
+        "category": "DevTools",
+        "hiringType": [
+            "Remote-friendly"
+        ],
+        "description": "tRPC is an open-source TypeScript framework for building end-to-end type-safe APIs without code generation.",
+        "logo": "https://logo.clearbit.com/trpc.io"
+    },
+    {
+        "name": "Clerk",
+        "slug": "clerk",
+        "website": "https://clerk.com",
+        "careers": "https://clerk.com/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Clerk is the fastest way to add authentication and user management to React, Next.js, and full-stack applications.",
+        "logo": "https://logo.clearbit.com/clerk.com"
+    },
+    {
+        "name": "Auth0",
+        "slug": "auth0",
+        "website": "https://auth0.com",
+        "careers": "https://www.okta.com/company/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "SaaS",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "Auth0 (by Okta) provides a flexible authentication and authorization platform for developers building secure applications.",
+        "logo": "https://logo.clearbit.com/auth0.com"
+    },
+    {
+        "name": "LaunchDarkly",
+        "slug": "launchdarkly",
+        "website": "https://launchdarkly.com",
+        "careers": "https://launchdarkly.com/careers",
+        "country": "United States",
+        "region": "Remote",
+        "category": "DevTools",
+        "hiringType": [
+            "Full-time",
+            "Remote-friendly"
+        ],
+        "description": "LaunchDarkly is the feature flag and experimentation platform for engineering teams to safely deploy and control features.",
+        "logo": "https://logo.clearbit.com/launchdarkly.com"
+    }
+]
