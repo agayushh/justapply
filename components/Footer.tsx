@@ -7,7 +7,7 @@ export default function Footer() {
       style={{
         borderTop: "1px solid var(--border)",
         background: "rgba(246,241,233,0.8)",
-        padding: "3rem 2rem 2rem",
+        padding: "3.5rem 1.5rem 2rem",
         marginTop: "5rem",
       }}
     >
@@ -16,7 +16,7 @@ export default function Footer() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-            gap: "2rem",
+            gap: "2.5rem",
             marginBottom: "3rem",
           }}
         >
@@ -26,7 +26,7 @@ export default function Footer() {
               href="/"
               style={{
                 fontFamily: "'Playfair Display', Georgia, serif",
-                fontSize: "1.15rem",
+                fontSize: "1.25rem",
                 fontWeight: 700,
                 color: "var(--text-primary)",
                 textDecoration: "none",
@@ -37,13 +37,13 @@ export default function Footer() {
             <p
               style={{
                 marginTop: "0.75rem",
-                fontSize: "0.8rem",
+                fontSize: "0.83rem",
                 color: "var(--text-muted)",
-                maxWidth: "240px",
-                lineHeight: 1.7,
+                maxWidth: "260px",
+                lineHeight: 1.6,
               }}
             >
-              The curated careers directory for software developers worldwide.
+              The open, curated careers directory for software developers worldwide. Discover active job openings at top tech companies.
             </p>
           </div>
 
@@ -52,7 +52,7 @@ export default function Footer() {
             <p
               style={{
                 fontSize: "0.75rem",
-                fontWeight: 600,
+                fontWeight: 700,
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
                 color: "var(--text-muted)",
@@ -61,17 +61,23 @@ export default function Footer() {
             >
               Browse by Region
             </p>
-            {["India", "United States", "Europe", "Remote"].map((region) => (
-              <div key={region} style={{ marginBottom: "0.5rem" }}>
+            {[
+              { name: "🇮🇳 India", slug: "india" },
+              { name: "🇺🇸 United States", slug: "us" },
+              { name: "🇪🇺 Europe", slug: "europe" },
+              { name: "🌍 Remote-first", slug: "remote" },
+            ].map((region) => (
+              <div key={region.slug} style={{ marginBottom: "0.5rem" }}>
                 <Link
-                  href={`/?region=${region === "United States" ? "US" : region}`}
+                  href={`/region/${region.slug}`}
                   style={{
                     fontSize: "0.875rem",
                     color: "var(--text-secondary)",
                     textDecoration: "none",
+                    transition: "color 0.15s ease",
                   }}
                 >
-                  {region}
+                  {region.name}
                 </Link>
               </div>
             ))}
@@ -82,7 +88,7 @@ export default function Footer() {
             <p
               style={{
                 fontSize: "0.75rem",
-                fontWeight: 600,
+                fontWeight: 700,
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
                 color: "var(--text-muted)",
@@ -103,11 +109,12 @@ export default function Footer() {
             ].map((cat) => (
               <div key={cat} style={{ marginBottom: "0.5rem" }}>
                 <Link
-                  href={`/?category=${cat}`}
+                  href={`/category/${cat.toLowerCase()}`}
                   style={{
                     fontSize: "0.875rem",
                     color: "var(--text-secondary)",
                     textDecoration: "none",
+                    transition: "color 0.15s ease",
                   }}
                 >
                   {cat}
@@ -116,23 +123,35 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Links */}
+          {/* Tools & Links */}
           <div>
             <p
               style={{
                 fontSize: "0.75rem",
-                fontWeight: 600,
+                fontWeight: 700,
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
                 color: "var(--text-muted)",
                 marginBottom: "1rem",
               }}
             >
-              Company
+              Developer Tools
             </p>
             <div style={{ marginBottom: "0.5rem" }}>
-              <a
-                href="mailto:hello@justapply.dev"
+              <Link
+                href="/tracker"
+                style={{
+                  fontSize: "0.875rem",
+                  color: "var(--text-secondary)",
+                  textDecoration: "none",
+                }}
+              >
+                My Application Tracker
+              </Link>
+            </div>
+            <div style={{ marginBottom: "0.5rem" }}>
+              <Link
+                href="/submit"
                 style={{
                   fontSize: "0.875rem",
                   color: "var(--text-secondary)",
@@ -140,7 +159,7 @@ export default function Footer() {
                 }}
               >
                 Submit a Company
-              </a>
+              </Link>
             </div>
             <div style={{ marginBottom: "0.5rem" }}>
               <a
@@ -151,7 +170,7 @@ export default function Footer() {
                   textDecoration: "none",
                 }}
               >
-                Contact
+                Contact & Feedback
               </a>
             </div>
           </div>
@@ -169,11 +188,10 @@ export default function Footer() {
           }}
         >
           <p style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>
-            © {currentYear} JustApply. Open careers directory for software
-            developers.
+            © {currentYear} JustApply. Software engineering careers directory & application tracker.
           </p>
           <p style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>
-            100+ companies · 4 regions · 8 categories
+            100+ Companies · 4 Regions · 8 Verticals
           </p>
         </div>
       </div>
