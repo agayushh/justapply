@@ -105,5 +105,44 @@ export function getHiringBadgeStyle(type: string): {
 } {
   if (type === "Remote-friendly") return { bg: "#D1FAE5", color: "#065F46" };
   if (type === "Internships") return { bg: "#FEF3C7", color: "#92400E" };
-  return { bg: "#E0E7FF", color: "#3730A3" };
+  return { bg: "#EFE7DC", color: "var(--ink)" };
+}
+
+export function slugifyCompanyName(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+export function safeHostname(website: string): string {
+  try {
+    const withProtocol = /^https?:\/\//i.test(website)
+      ? website
+      : `https://${website}`;
+    return new URL(withProtocol).hostname.replace(/^www\./, "");
+  } catch {
+    return "";
+  }
+}
+
+export function logoFromWebsite(website: string): string {
+  const host = safeHostname(website);
+  if (!host || !host.includes(".")) return "";
+  return `https://logo.clearbit.com/${host}`;
+}
+
+export function isHttpUrl(value: string): boolean {
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
+export function mergeCompanies(base: Company[], extra: Company[]): Company[] {
+  const seen = new Set(base.map((company) => company.slug));
+  const fresh = extra.filter((company) => company.slug && !seen.has(company.slug));
+  return [...fresh, ...base];
 }
