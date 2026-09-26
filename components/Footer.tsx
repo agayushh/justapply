@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { getAllCompanies, getCategories, getRegions } from "@/lib/companies";
 
 export default function Footer() {
   const currentYear = 2026;
+  const companyCount = getAllCompanies().length;
   return (
     <footer
       style={{
@@ -25,7 +27,7 @@ export default function Footer() {
             <Link
               href="/"
               style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
+                fontFamily: "'Fraunces', Georgia, serif",
                 fontSize: "1.25rem",
                 fontWeight: 700,
                 color: "var(--text-primary)",
@@ -191,7 +193,7 @@ export default function Footer() {
             © {currentYear} JustApply. Software engineering careers directory & application tracker.
           </p>
           <p style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>
-            100+ Companies · 4 Regions · 8 Verticals
+            {companyCount} Companies · {getRegions().length} Regions · {getCategories().length} Verticals
           </p>
         </div>
       </div>
