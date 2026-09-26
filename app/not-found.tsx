@@ -20,7 +20,7 @@ export default function NotFound() {
         <p style={{ fontSize: "4rem", marginBottom: "1.5rem" }}>🗺️</p>
         <h1
           style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
+            fontFamily: "'Fraunces', Georgia, serif",
             fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
             fontWeight: 700,
             color: "var(--text-primary)",
@@ -52,7 +52,7 @@ export default function NotFound() {
             fontWeight: 600,
             fontSize: "0.9rem",
             textDecoration: "none",
-            boxShadow: "0 2px 8px rgba(79,70,229,0.25)",
+            boxShadow: "0 2px 8px var(--accent-glow)",
           }}
         >
           Browse All Companies

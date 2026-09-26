@@ -8,12 +8,13 @@ interface CompanyLogoProps {
   name: string;
   size?: number;
   style?: React.CSSProperties;
+  variant?: "color" | "plain";
 }
 
 // Generate consistent background color based on company name
 function getMonogramColor(name: string): { bg: string; color: string } {
   const colors = [
-    { bg: "#EEF2FF", color: "#4F46E5" }, // Indigo
+    { bg: "#F3E6DC", color: "var(--accent)" },
     { bg: "#F0FDF4", color: "#16A34A" }, // Green
     { bg: "#FEF2F2", color: "#DC2626" }, // Red
     { bg: "#FFFBEB", color: "#D97706" }, // Amber
@@ -36,9 +37,13 @@ export default function CompanyLogo({
   name,
   size = 40,
   style = {},
+  variant = "color",
 }: CompanyLogoProps) {
   const [error, setError] = useState(false);
-  const colorScheme = getMonogramColor(name);
+  const colorScheme =
+    variant === "plain"
+      ? { bg: "#f7f3ec", color: "var(--ink)" }
+      : getMonogramColor(name);
   const initial = name ? name.charAt(0).toUpperCase() : "?";
 
   if (error || !src) {
@@ -53,8 +58,9 @@ export default function CompanyLogo({
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontWeight: 700,
-          fontSize: `${Math.max(12, Math.round(size * 0.45))}px`,
+          fontFamily: variant === "plain" ? '"Fraunces", Georgia, serif' : "inherit",
+          fontWeight: variant === "plain" ? 500 : 700,
+          fontSize: `${Math.max(12, Math.round(size * (variant === "plain" ? 0.42 : 0.45)))}px`,
           userSelect: "none",
           border: "1px solid rgba(0,0,0,0.06)",
           flexShrink: 0,

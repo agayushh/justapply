@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, type CSSProperties } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTrackedCompanies } from "@/lib/tracker";
@@ -8,146 +9,84 @@ export default function Navbar() {
   const pathname = usePathname();
   const { trackedMap, isLoaded } = useTrackedCompanies();
   const savedCount = Object.keys(trackedMap).length;
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuPath, setMenuPath] = useState(pathname);
+  if (menuPath !== pathname) {
+    setMenuPath(pathname);
+    setMenuOpen(false);
+  }
 
   return (
-    <header
-      style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 100,
-        background: "rgba(246, 241, 233, 0.9)",
-        backdropFilter: "blur(14px)",
-        WebkitBackdropFilter: "blur(14px)",
-        borderBottom: "1px solid var(--border)",
-      }}
-    >
-      <nav
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "0 1.5rem",
-          height: "64px",
-        }}
-      >
-        {/* Logo */}
-        <Link
-          href="/"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "10px",
-            textDecoration: "none",
-          }}
-        >
-          <div
-            style={{
-              width: 34,
-              height: 34,
-              borderRadius: "8px",
-              background: "linear-gradient(135deg, #4F46E5 0%, #3730A3 100%)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "#fff",
-              boxShadow: "0 2px 8px rgba(79,70,229,0.3)",
-            }}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="3" width="8" height="8" rx="2" fill="white" />
-              <rect x="13" y="3" width="8" height="8" rx="2" fill="white" opacity="0.6" />
-              <rect x="3" y="13" width="8" height="8" rx="2" fill="white" opacity="0.6" />
-              <rect x="13" y="13" width="8" height="8" rx="2" fill="white" />
-            </svg>
-          </div>
-          <span
-            style={{
-              fontFamily: "'Playfair Display', Georgia, serif",
-              fontSize: "1.25rem",
-              fontWeight: 700,
-              color: "var(--text-primary)",
-              letterSpacing: "-0.02em",
-            }}
-          >
-            JustApply
-          </span>
+    <header className="site-header">
+      <nav className="site-nav">
+        <Link href="/" className="wordmark">
+          <span className="mark" aria-hidden="true">J</span>
+          <span>JustApply</span>
         </Link>
 
+        <button
+          type="button"
+          className="mobile-nav-toggle"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            {menuOpen ? (
+              <path d="M4 4L14 14M14 4L4 14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+            ) : (
+              <path d="M3 5H15M3 9H15M3 13H15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+            )}
+          </svg>
+        </button>
+
         {/* Nav links */}
-        <div style={{ display: "flex", alignItems: "center", gap: "1.25rem" }}>
+        <div className="desktop-nav">
           <Link
             href="/"
-            style={{
-              fontSize: "0.875rem",
-              fontWeight: pathname === "/" ? 600 : 500,
-              color: pathname === "/" ? "var(--accent)" : "var(--text-secondary)",
-              textDecoration: "none",
-              transition: "color 0.15s ease",
-            }}
+            className={`nav-link${pathname === "/" ? " is-active" : ""}`}
           >
             Browse
           </Link>
 
           <Link
             href="/tracker"
-            style={{
-              fontSize: "0.875rem",
-              fontWeight: pathname === "/tracker" ? 600 : 500,
-              color: pathname === "/tracker" ? "var(--accent)" : "var(--text-secondary)",
-              textDecoration: "none",
-              display: "flex",
-              alignItems: "center",
-              gap: "6px",
-              padding: "4px 10px",
-              borderRadius: "6px",
-              background: savedCount > 0 ? "rgba(79,70,229,0.08)" : "transparent",
-              transition: "all 0.15s ease",
-            }}
+            className={`nav-link${pathname === "/tracker" ? " is-active" : ""}`}
           >
-            <span>My Tracker</span>
+            Tracker
             {isLoaded && savedCount > 0 && (
-              <span
-                style={{
-                  background: "var(--accent)",
-                  color: "#fff",
-                  fontSize: "0.72rem",
-                  fontWeight: 700,
-                  borderRadius: "999px",
-                  padding: "1px 7px",
-                  minWidth: "18px",
-                  textAlign: "center",
-                }}
-              >
-                {savedCount}
-              </span>
+              <span className="count-badge" style={{ marginLeft: 6 }}>{savedCount}</span>
             )}
           </Link>
 
-          <Link
-            href="/submit"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "6px",
-              padding: "8px 16px",
-              background: "var(--accent)",
-              color: "#fff",
-              borderRadius: "8px",
-              fontSize: "0.8125rem",
-              fontWeight: 600,
-              textDecoration: "none",
-              boxShadow: "0 2px 8px rgba(79,70,229,0.25)",
-              transition: "transform 0.15s ease, background-color 0.15s ease",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-1px)")}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = "")}
-          >
-            + Submit Company
+          <Link href="/submit" className="nav-pill">
+            Submit
           </Link>
         </div>
       </nav>
+      {menuOpen && (
+        <div className="mobile-nav-panel">
+          <Link href="/" style={mobileLinkStyle(pathname === "/")}>
+            Browse
+          </Link>
+          <Link href="/tracker" style={mobileLinkStyle(pathname === "/tracker")}>
+            My Tracker{isLoaded && savedCount > 0 ? ` (${savedCount})` : ""}
+          </Link>
+          <Link href="/submit" style={mobileLinkStyle(pathname === "/submit")}>
+            Submit Company
+          </Link>
+        </div>
+      )}
     </header>
   );
+}
+
+function mobileLinkStyle(active: boolean): CSSProperties {
+  return {
+    padding: "0.7rem 0.25rem",
+    fontSize: "0.95rem",
+    fontWeight: active ? 600 : 500,
+    color: active ? "var(--accent)" : "var(--text-primary)",
+    textDecoration: "none",
+  };
 }
