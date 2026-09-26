@@ -1,10 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CompanyCard from "@/components/CompanyCard";
-import type { Company } from "@/lib/companies";
+import {
+  getCompanyBySlug,
+  isHttpUrl,
+  logoFromWebsite,
+  slugifyCompanyName,
+  type Company,
+} from "@/lib/companies";
+import { getSubmissions, saveSubmission } from "@/lib/submissions";
 
 export default function SubmitPage() {
   const [formData, setFormData] = useState({
@@ -20,14 +28,15 @@ export default function SubmitPage() {
 
   const [submitted, setSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [error, setError] = useState("");
 
-  const slug = formData.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") || "example";
+  const slug = slugifyCompanyName(formData.name) || "example";
 
   const previewCompany: Company = {
     name: formData.name || "Acme Tech",
-    slug: slug,
-    website: formData.website || "https://example.com",
-    careers: formData.careers || "https://example.com/careers",
+    slug,
+    website: isHttpUrl(formData.website) ? formData.website : "https://example.com",
+    careers: isHttpUrl(formData.careers) ? formData.careers : "https://example.com/careers",
     country: formData.country || "United States",
     region: formData.region,
     category: formData.category,
@@ -35,7 +44,7 @@ export default function SubmitPage() {
     description:
       formData.description ||
       "Acme Tech is building next-generation infrastructure tools for cloud native software teams worldwide.",
-    logo: formData.website ? `https://logo.clearbit.com/${new URL(formData.website.startsWith("http") ? formData.website : `https://${formData.website}`).hostname}` : "https://logo.clearbit.com/example.com",
+    logo: logoFromWebsite(formData.website),
   };
 
   const handleHiringToggle = (type: "Full-time" | "Internships" | "Remote-friendly") => {
@@ -52,7 +61,47 @@ export default function SubmitPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.website || !formData.careers) return;
+    const nextSlug = slugifyCompanyName(formData.name);
+    if (!nextSlug) {
+      setError("Company name needs at least one letter or number.");
+      return;
+    }
+    if (!isHttpUrl(formData.website) || !isHttpUrl(formData.careers)) {
+      setError("Website and careers page both need a full http or https URL.");
+      return;
+    }
+    if (!formData.country.trim()) {
+      setError("Add the headquarters country.");
+      return;
+    }
+    if (formData.description.trim().length < 20) {
+      setError("Add a short description of at least 20 characters.");
+      return;
+    }
+    if (formData.hiringType.length === 0) {
+      setError("Choose at least one hiring type.");
+      return;
+    }
+    if (getCompanyBySlug(nextSlug) || getSubmissions()[nextSlug]) {
+      setError("A company with this name is already in the directory.");
+      return;
+    }
+
+    const company: Company = {
+      name: formData.name.trim(),
+      slug: nextSlug,
+      website: formData.website.trim(),
+      careers: formData.careers.trim(),
+      country: formData.country.trim(),
+      region: formData.region,
+      category: formData.category,
+      hiringType: formData.hiringType,
+      description: formData.description.trim(),
+      logo: logoFromWebsite(formData.website),
+    };
+
+    saveSubmission(company);
+    setError("");
     setSubmitted(true);
   };
 
@@ -89,7 +138,7 @@ export default function SubmitPage() {
           </p>
           <h1
             style={{
-              fontFamily: "'Playfair Display', Georgia, serif",
+              fontFamily: "'Fraunces', Georgia, serif",
               fontSize: "clamp(2rem, 4vw, 2.75rem)",
               fontWeight: 700,
               color: "var(--text-primary)",
@@ -143,14 +192,14 @@ export default function SubmitPage() {
             </div>
             <h2
               style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
+                fontFamily: "'Fraunces', Georgia, serif",
                 fontSize: "1.75rem",
                 fontWeight: 700,
                 color: "var(--text-primary)",
                 marginBottom: "0.75rem",
               }}
             >
-              Submission Received!
+              {formData.name} is in your directory
             </h2>
             <p
               style={{
@@ -160,7 +209,7 @@ export default function SubmitPage() {
                 marginBottom: "1.5rem",
               }}
             >
-              Thank you for contributing <strong>{formData.name}</strong>. Our team will verify the official careers URL and list it shortly.
+              <strong>{formData.name}</strong> is saved in this browser and now appears when you browse, filter, and track companies on this device.
             </p>
 
             <div
@@ -180,15 +229,29 @@ export default function SubmitPage() {
               </pre>
             </div>
 
-            <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center" }}>
+            <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center", flexWrap: "wrap" }}>
+              <Link
+                href={`/company/${slugifyCompanyName(formData.name)}`}
+                style={{
+                  padding: "10px 20px",
+                  background: "var(--accent)",
+                  color: "#fff",
+                  borderRadius: "8px",
+                  fontWeight: 600,
+                  fontSize: "0.875rem",
+                  textDecoration: "none",
+                }}
+              >
+                View company page
+              </Link>
               <button
                 type="button"
                 onClick={copyJson}
                 style={{
                   padding: "10px 20px",
-                  background: "var(--accent)",
-                  color: "#fff",
-                  border: "none",
+                  background: "transparent",
+                  color: "var(--text-primary)",
+                  border: "1px solid var(--border)",
                   borderRadius: "8px",
                   fontWeight: 600,
                   fontSize: "0.875rem",
@@ -216,14 +279,7 @@ export default function SubmitPage() {
             </div>
           </div>
         ) : (
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "2.5rem",
-              alignItems: "start",
-            }}
-          >
+          <div className="submit-layout">
             {/* Form */}
             <form
               onSubmit={handleSubmit}
@@ -237,7 +293,7 @@ export default function SubmitPage() {
             >
               <h2
                 style={{
-                  fontFamily: "'Playfair Display', Georgia, serif",
+                  fontFamily: "'Fraunces', Georgia, serif",
                   fontSize: "1.25rem",
                   fontWeight: 700,
                   color: "var(--text-primary)",
@@ -274,7 +330,7 @@ export default function SubmitPage() {
                   />
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+                <div className="form-row">
                   <div>
                     <label
                       htmlFor="website"
@@ -328,7 +384,7 @@ export default function SubmitPage() {
                   </div>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+                <div className="form-row">
                   <div>
                     <label
                       htmlFor="region"
@@ -435,7 +491,7 @@ export default function SubmitPage() {
                             fontSize: "0.8rem",
                             fontWeight: 500,
                             border: active ? "1.5px solid var(--accent)" : "1px solid var(--border)",
-                            background: active ? "rgba(79,70,229,0.1)" : "var(--bg-primary)",
+                            background: active ? "var(--accent-soft)" : "var(--bg-primary)",
                             color: active ? "var(--accent)" : "var(--text-secondary)",
                             cursor: "pointer",
                           }}
@@ -473,6 +529,12 @@ export default function SubmitPage() {
                   />
                 </div>
 
+                {error && (
+                  <p role="alert" style={{ fontSize: "0.85rem", color: "#B91C1C", lineHeight: 1.5 }}>
+                    {error}
+                  </p>
+                )}
+
                 <button
                   type="submit"
                   style={{
@@ -485,7 +547,7 @@ export default function SubmitPage() {
                     fontWeight: 600,
                     fontSize: "0.95rem",
                     cursor: "pointer",
-                    boxShadow: "0 2px 8px rgba(79,70,229,0.3)",
+                    boxShadow: "0 2px 8px var(--accent-glow)",
                   }}
                 >
                   Submit Company
