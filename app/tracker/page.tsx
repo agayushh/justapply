@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CompanyLogo from "@/components/CompanyLogo";
-import { getAllCompanies } from "@/lib/companies";
+import { getAllCompanies, mergeCompanies } from "@/lib/companies";
+import { useSubmissions } from "@/lib/submissions";
 import {
   useTrackedCompanies,
   saveTrackedCompany,
@@ -21,7 +22,7 @@ const statusConfig: Record<
     label: "Wishlist",
     emoji: "📌",
     bg: "#EEF2FF",
-    color: "#4F46E5",
+    color: "var(--accent)",
     desc: "Companies you want to apply to",
   },
   applied: {
@@ -49,12 +50,18 @@ const statusConfig: Record<
 
 export default function TrackerPage() {
   const { trackedMap, isLoaded } = useTrackedCompanies();
-  const allCompanies = getAllCompanies();
+  const submissions = useSubmissions();
+  const allCompanies = useMemo(
+    () => mergeCompanies(getAllCompanies(), submissions),
+    [submissions],
+  );
   const [activeTab, setActiveTab] = useState<ApplicationStatus | "all">("all");
   const [editingNotesSlug, setEditingNotesSlug] = useState<string | null>(null);
   const [notesInput, setNotesInput] = useState("");
 
-  const trackedList = Object.values(trackedMap).map((tracked) => {
+  const trackedList = Object.values(trackedMap)
+    .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
+    .map((tracked) => {
     const company = allCompanies.find((c) => c.slug === tracked.slug);
     return {
       ...tracked,
@@ -123,7 +130,7 @@ export default function TrackerPage() {
           </p>
           <h1
             style={{
-              fontFamily: "'Playfair Display', Georgia, serif",
+              fontFamily: "'Fraunces', Georgia, serif",
               fontSize: "clamp(2rem, 4vw, 2.75rem)",
               fontWeight: 700,
               color: "var(--text-primary)",
@@ -157,7 +164,7 @@ export default function TrackerPage() {
         >
           {[
             { label: "Total Bookmarked", count: stats.total, color: "var(--text-primary)" },
-            { label: "Wishlist", count: stats.saved, color: "#4F46E5" },
+            { label: "Wishlist", count: stats.saved, color: "var(--accent)" },
             { label: "Applied", count: stats.applied, color: "#B45309" },
             { label: "Interviewing", count: stats.interviewing, color: "#6D28D9" },
             { label: "Offers Received", count: stats.offer, color: "#065F46" },
@@ -174,7 +181,7 @@ export default function TrackerPage() {
             >
               <p
                 style={{
-                  fontFamily: "'Playfair Display', Georgia, serif",
+                  fontFamily: "'Fraunces', Georgia, serif",
                   fontSize: "1.75rem",
                   fontWeight: 700,
                   color: stat.color,
@@ -275,17 +282,19 @@ export default function TrackerPage() {
             <p style={{ fontSize: "2.5rem", marginBottom: "0.75rem" }}>📌</p>
             <h3
               style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
+                fontFamily: "'Fraunces', Georgia, serif",
                 fontSize: "1.25rem",
                 fontWeight: 700,
                 color: "var(--text-primary)",
                 marginBottom: "0.5rem",
               }}
             >
-              No companies in this status yet
+              {stats.total === 0 ? "Your tracker is empty" : "No companies in this status yet"}
             </h3>
             <p style={{ fontSize: "0.9rem", color: "var(--text-secondary)", marginBottom: "1.5rem" }}>
-              Bookmark companies while browsing to track your application pipeline.
+              {stats.total === 0
+                ? "Bookmark a company while browsing, then move it from wishlist to applied, interviewing, or offer."
+                : "Try another stage, or bookmark more companies from the directory."}
             </p>
             <Link
               href="/"
@@ -339,7 +348,7 @@ export default function TrackerPage() {
                           <Link
                             href={`/company/${company.slug}`}
                             style={{
-                              fontFamily: "'Playfair Display', Georgia, serif",
+                              fontFamily: "'Fraunces', Georgia, serif",
                               fontSize: "1.15rem",
                               fontWeight: 700,
                               color: "var(--text-primary)",
