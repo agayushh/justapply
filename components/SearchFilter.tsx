@@ -1,10 +1,12 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import type { Company } from "@/lib/companies";
-import { getCategories, getRegions } from "@/lib/companies";
+import { getCategories, getRegions, mergeCompanies } from "@/lib/companies";
 import CompanyCard from "./CompanyCard";
 import { useTrackedCompanies } from "@/lib/tracker";
+import { useSubmissions } from "@/lib/submissions";
 
 interface SearchFilterProps {
   companies: Company[];
@@ -29,46 +31,74 @@ export default function SearchFilter({
   initialCategory = "All",
   initialRegion = "All",
 }: SearchFilterProps) {
-  const [query, setQueryState] = useState(() => {
-    if (typeof window === "undefined") return "";
-    return new URLSearchParams(window.location.search).get("q") || "";
-  });
+  const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const submissions = useSubmissions();
+  const directory = useMemo(
+    () => mergeCompanies(companies, submissions),
+    [companies, submissions],
+  );
 
-  const [category, setCategoryState] = useState(() => {
-    if (typeof window === "undefined") return initialCategory;
-    const cat = new URLSearchParams(window.location.search).get("category");
-    return cat && categories.includes(cat) ? cat : initialCategory;
-  });
+  const query = searchParams.get("q") || "";
+  const categoryParam = searchParams.get("category");
+  const category =
+    categoryParam && categories.includes(categoryParam) ? categoryParam : initialCategory;
+  const regionParam = searchParams.get("region");
+  const region = regionParam && regions.includes(regionParam) ? regionParam : initialRegion;
+  const hiringParam = searchParams.get("hiring");
+  const hiring = hiringParam && hiringTypes.includes(hiringParam) ? hiringParam : "All";
+  const showSavedOnly = searchParams.get("saved") === "1";
+  const sortParam = searchParams.get("sort");
+  const sortBy: "featured" | "name-asc" | "name-desc" =
+    sortParam === "name-asc" || sortParam === "name-desc" ? sortParam : "featured";
 
-  const [region, setRegionState] = useState(() => {
-    if (typeof window === "undefined") return initialRegion;
-    const reg = new URLSearchParams(window.location.search).get("region");
-    return reg && regions.includes(reg) ? reg : initialRegion;
-  });
-
-  const [hiring, setHiringState] = useState(() => {
-    if (typeof window === "undefined") return "All";
-    const hir = new URLSearchParams(window.location.search).get("hiring");
-    return hir && hiringTypes.includes(hir) ? hir : "All";
-  });
-
-  const [showSavedOnly, setShowSavedOnlyState] = useState(false);
-  const [sortBy, setSortByState] = useState<"featured" | "name-asc" | "name-desc">("featured");
+  const filterKey = [query, category, region, hiring, showSavedOnly, sortBy].join("|");
   const [visibleCount, setVisibleCount] = useState(24);
+  const [visibleKey, setVisibleKey] = useState(filterKey);
+  if (visibleKey !== filterKey) {
+    setVisibleKey(filterKey);
+    setVisibleCount(24);
+  }
 
-  const setCategory = (c: string) => { setCategoryState(c); setVisibleCount(24); };
-  const setRegion = (r: string) => { setRegionState(r); setVisibleCount(24); };
-  const setHiring = (h: string) => { setHiringState(h); setVisibleCount(24); };
-  const setQuery = (q: string) => { setQueryState(q); setVisibleCount(24); };
-  const setShowSavedOnly = (s: boolean) => { setShowSavedOnlyState(s); setVisibleCount(24); };
-  const setSortBy = (s: "featured" | "name-asc" | "name-desc") => { setSortByState(s); setVisibleCount(24); };
+  const replaceFilters = (next: {
+    query?: string;
+    category?: string;
+    region?: string;
+    hiring?: string;
+    showSavedOnly?: boolean;
+    sortBy?: "featured" | "name-asc" | "name-desc";
+  }) => {
+    const nextQuery = next.query ?? query;
+    const nextCategory = next.category ?? category;
+    const nextRegion = next.region ?? region;
+    const nextHiring = next.hiring ?? hiring;
+    const nextSaved = next.showSavedOnly ?? showSavedOnly;
+    const nextSort = next.sortBy ?? sortBy;
+    const nextParams = new URLSearchParams();
+    if (nextQuery) nextParams.set("q", nextQuery);
+    if (nextCategory !== initialCategory) nextParams.set("category", nextCategory);
+    if (nextRegion !== initialRegion) nextParams.set("region", nextRegion);
+    if (nextHiring !== "All") nextParams.set("hiring", nextHiring);
+    if (nextSaved) nextParams.set("saved", "1");
+    if (nextSort !== "featured") nextParams.set("sort", nextSort);
+    const queryString = nextParams.toString();
+    router.replace(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false });
+  };
+
+  const setCategory = (value: string) => replaceFilters({ category: value });
+  const setRegion = (value: string) => replaceFilters({ region: value });
+  const setHiring = (value: string) => replaceFilters({ hiring: value });
+  const setQuery = (value: string) => replaceFilters({ query: value });
+  const setShowSavedOnly = (value: boolean) => replaceFilters({ showSavedOnly: value });
+  const setSortBy = (value: "featured" | "name-asc" | "name-desc") =>
+    replaceFilters({ sortBy: value });
 
   const { trackedMap } = useTrackedCompanies();
   const savedCount = Object.keys(trackedMap).length;
 
-  // Filter logic
-  const filtered = useMemo(() => {
-    let result = companies.filter((c) => {
+  const filtered = (() => {
+    let result = directory.filter((c) => {
       const q = query.toLowerCase().trim();
       const matchesQuery =
         q === "" ||
@@ -100,7 +130,7 @@ export default function SearchFilter({
     }
 
     return result;
-  }, [companies, query, category, region, hiring, showSavedOnly, sortBy, trackedMap]);
+  })();
 
   const activeFiltersCount =
     (category !== "All" ? 1 : 0) +
@@ -110,13 +140,14 @@ export default function SearchFilter({
     (query ? 1 : 0);
 
   const resetAllFilters = () => {
-    setQuery("");
-    setCategory("All");
-    setRegion("All");
-    setHiring("All");
-    setShowSavedOnly(false);
-    setSortBy("featured");
-    setVisibleCount(24);
+    replaceFilters({
+      query: "",
+      category: "All",
+      region: "All",
+      hiring: "All",
+      showSavedOnly: false,
+      sortBy: "featured",
+    });
   };
 
   const displayedCompanies = filtered.slice(0, visibleCount);
@@ -125,13 +156,7 @@ export default function SearchFilter({
     <div>
       {/* Search Bar + Main Controls */}
       <div style={{ marginBottom: "2rem" }}>
-        <div
-          style={{
-            position: "relative",
-            maxWidth: "680px",
-            margin: "0 auto 1.5rem",
-          }}
-        >
+        <div className="search-shell">
           <span
             style={{
               position: "absolute",
@@ -139,38 +164,18 @@ export default function SearchFilter({
               top: "50%",
               transform: "translateY(-50%)",
               color: "var(--text-muted)",
-              fontSize: "1.1rem",
+              fontSize: "0.95rem",
               pointerEvents: "none",
             }}
           >
-            🔍
+            ⌕
           </span>
           <input
             type="search"
-            placeholder="Search by company name, technology, or country..."
+            placeholder="Company, technology, or country"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             aria-label="Search companies"
-            style={{
-              width: "100%",
-              padding: "1rem 1rem 1rem 3.2rem",
-              border: "1.5px solid var(--border)",
-              borderRadius: "12px",
-              fontSize: "1rem",
-              background: "var(--bg-card)",
-              color: "var(--text-primary)",
-              outline: "none",
-              boxShadow: "0 2px 8px var(--shadow)",
-              transition: "border-color 0.2s ease, box-shadow 0.2s ease",
-            }}
-            onFocus={(e) => {
-              e.target.style.borderColor = "var(--accent)";
-              e.target.style.boxShadow = "0 0 0 4px rgba(79,70,229,0.12)";
-            }}
-            onBlur={(e) => {
-              e.target.style.borderColor = "var(--border)";
-              e.target.style.boxShadow = "0 2px 8px var(--shadow)";
-            }}
           />
           {query && (
             <button
@@ -226,7 +231,7 @@ export default function SearchFilter({
                 color: category === cat ? "#fff" : "var(--text-secondary)",
                 cursor: "pointer",
                 transition: "all 0.15s ease",
-                boxShadow: category === cat ? "0 2px 8px rgba(79,70,229,0.25)" : "none",
+                boxShadow: category === cat ? "0 2px 8px var(--accent-glow)" : "none",
               }}
             >
               {cat}
@@ -320,7 +325,7 @@ export default function SearchFilter({
                 fontSize: "0.83rem",
                 fontWeight: 600,
                 border: showSavedOnly ? "1.5px solid var(--accent)" : "1px solid var(--border)",
-                background: showSavedOnly ? "rgba(79,70,229,0.1)" : "var(--bg-primary)",
+                background: showSavedOnly ? "var(--accent-soft)" : "var(--bg-primary)",
                 color: showSavedOnly ? "var(--accent)" : "var(--text-secondary)",
                 cursor: "pointer",
                 transition: "all 0.15s ease",
@@ -391,7 +396,7 @@ export default function SearchFilter({
                 style={{
                   fontSize: "0.75rem",
                   background: "#E0E7FF",
-                  color: "#3730A3",
+                  color: "var(--accent-hover)",
                   padding: "3px 10px",
                   borderRadius: "999px",
                   display: "inline-flex",
@@ -414,7 +419,7 @@ export default function SearchFilter({
                 style={{
                   fontSize: "0.75rem",
                   background: "#E0E7FF",
-                  color: "#3730A3",
+                  color: "var(--accent-hover)",
                   padding: "3px 10px",
                   borderRadius: "999px",
                   display: "inline-flex",
@@ -437,7 +442,7 @@ export default function SearchFilter({
                 style={{
                   fontSize: "0.75rem",
                   background: "#E0E7FF",
-                  color: "#3730A3",
+                  color: "var(--accent-hover)",
                   padding: "3px 10px",
                   borderRadius: "999px",
                   display: "inline-flex",
@@ -460,7 +465,7 @@ export default function SearchFilter({
                 style={{
                   fontSize: "0.75rem",
                   background: "#E0E7FF",
-                  color: "#3730A3",
+                  color: "var(--accent-hover)",
                   padding: "3px 10px",
                   borderRadius: "999px",
                   display: "inline-flex",
@@ -483,7 +488,7 @@ export default function SearchFilter({
                 style={{
                   fontSize: "0.75rem",
                   background: "#E0E7FF",
-                  color: "#3730A3",
+                  color: "var(--accent-hover)",
                   padding: "3px 10px",
                   borderRadius: "999px",
                   display: "inline-flex",
@@ -631,7 +636,7 @@ export default function SearchFilter({
               fontSize: "0.9rem",
               fontWeight: 600,
               cursor: "pointer",
-              boxShadow: "0 2px 8px rgba(79,70,229,0.3)",
+              boxShadow: "0 2px 8px var(--accent-glow)",
             }}
           >
             Clear All Filters

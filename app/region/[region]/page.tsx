@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
@@ -76,7 +77,7 @@ export default async function RegionPage({ params }: Props) {
           </p>
           <h1
             style={{
-              fontFamily: "'Playfair Display', Georgia, serif",
+              fontFamily: "'Fraunces', Georgia, serif",
               fontSize: "clamp(2rem, 4vw, 2.75rem)",
               fontWeight: 700,
               color: "var(--text-primary)",
@@ -94,11 +95,13 @@ export default async function RegionPage({ params }: Props) {
               margin: "0 auto",
             }}
           >
-            Explore {regionCompanies.length} tech companies hiring software developers in {canonicalRegion}.
+            {regionCompanies.length} published companies hiring in {canonicalRegion}, plus any you added in this browser.
           </p>
         </div>
 
-        <SearchFilter companies={companies} initialRegion={canonicalRegion} />
+        <Suspense fallback={<p style={{ textAlign: "center", color: "var(--text-muted)" }}>Loading companies…</p>}>
+          <SearchFilter companies={companies} initialRegion={canonicalRegion} />
+        </Suspense>
       </main>
       <Footer />
     </>

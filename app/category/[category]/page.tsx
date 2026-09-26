@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
@@ -65,7 +66,7 @@ export default async function CategoryPage({ params }: Props) {
           </p>
           <h1
             style={{
-              fontFamily: "'Playfair Display', Georgia, serif",
+              fontFamily: "'Fraunces', Georgia, serif",
               fontSize: "clamp(2rem, 4vw, 2.75rem)",
               fontWeight: 700,
               color: "var(--text-primary)",
@@ -83,11 +84,13 @@ export default async function CategoryPage({ params }: Props) {
               margin: "0 auto",
             }}
           >
-            Explore {categoryCompanies.length} software companies specializing in {canonicalCat}.
+            {categoryCompanies.length} published {canonicalCat} companies, plus any you added in this browser.
           </p>
         </div>
 
-        <SearchFilter companies={companies} initialCategory={canonicalCat} />
+        <Suspense fallback={<p style={{ textAlign: "center", color: "var(--text-muted)" }}>Loading companies…</p>}>
+          <SearchFilter companies={companies} initialCategory={canonicalCat} />
+        </Suspense>
       </main>
       <Footer />
     </>

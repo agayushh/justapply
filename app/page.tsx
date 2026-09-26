@@ -1,4 +1,6 @@
-import { getAllCompanies } from "@/lib/companies";
+import { Suspense } from "react";
+import Link from "next/link";
+import { getAllCompanies, getCategories, getRegions } from "@/lib/companies";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SearchFilter from "@/components/SearchFilter";
@@ -11,48 +13,34 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://justapply.dev" },
 };
 
-const stats = [
-  { value: "100+", label: "Companies Listed" },
-  { value: "8", label: "Categories" },
-  { value: "4", label: "Regions" },
-  { value: "∞", label: "Opportunities" },
-];
-
 const categoryShowcase = [
-  {
-    emoji: "🤖",
-    label: "AI",
-    desc: "Machine learning, LLMs, and AI infrastructure",
-  },
-  {
-    emoji: "💳",
-    label: "Fintech",
-    desc: "Payments, banking, and financial APIs",
-  },
-  {
-    emoji: "☁️",
-    label: "Cloud",
-    desc: "Infrastructure, databases, and platform tools",
-  },
-  {
-    emoji: "🛠️",
-    label: "DevTools",
-    desc: "Developer experience and productivity",
-  },
-  {
-    emoji: "🚀",
-    label: "Startup",
-    desc: "High-growth companies with equity upside",
-  },
-  {
-    emoji: "🔗",
-    label: "Web3",
-    desc: "Blockchain, crypto, and decentralized apps",
-  },
+  { emoji: "🤖", label: "AI", desc: "Machine learning, LLMs, and AI infrastructure" },
+  { emoji: "💳", label: "Fintech", desc: "Payments, banking, and financial APIs" },
+  { emoji: "☁️", label: "Cloud", desc: "Infrastructure, databases, and platform tools" },
+  { emoji: "🛠️", label: "DevTools", desc: "Developer experience and productivity" },
+  { emoji: "🚀", label: "Startup", desc: "High-growth companies with equity upside" },
+  { emoji: "🔗", label: "Web3", desc: "Blockchain, crypto, and decentralized apps" },
+  { emoji: "📦", label: "SaaS", desc: "Subscription software used by teams every day" },
+  { emoji: "🏢", label: "MNC", desc: "Global companies with large engineering orgs" },
 ];
 
 export default function HomePage() {
   const companies = getAllCompanies();
+  const remoteCount = companies.filter((company) =>
+    company.hiringType.includes("Remote-friendly"),
+  ).length;
+  const categoryCounts = Object.fromEntries(
+    getCategories().map((category) => [
+      category,
+      companies.filter((company) => company.category === category).length,
+    ]),
+  );
+  const stats = [
+    { value: String(companies.length), label: "Companies Listed" },
+    { value: String(getCategories().length), label: "Categories" },
+    { value: String(getRegions().length), label: "Regions" },
+    { value: String(remoteCount), label: "Remote-friendly" },
+  ];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -79,172 +67,40 @@ export default function HomePage() {
 
       <main>
         {/* ── HERO ── */}
-        <section
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            padding: "5rem 2rem 3rem",
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "3rem",
-            alignItems: "center",
-          }}
-        >
+        <section className="hero">
           <div>
-            <p
-              style={{
-                fontSize: "0.75rem",
-                fontWeight: 700,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                color: "var(--accent)",
-                marginBottom: "1.25rem",
-              }}
-            >
-              The Developer Careers Directory
-            </p>
-            <h1
-              style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
-                fontSize: "clamp(2.25rem, 4vw, 3.25rem)",
-                fontWeight: 700,
-                color: "var(--text-primary)",
-                lineHeight: 1.15,
-                letterSpacing: "-0.02em",
-                marginBottom: "1.25rem",
-              }}
-            >
-              Find your next{" "}
-              <em style={{ fontStyle: "italic", color: "var(--accent)" }}>
-                tech role
-              </em>{" "}
-              at the world&apos;s best companies.
+            <p className="kicker">Software careers directory</p>
+            <h1>
+              Find the next role worth <em>applying</em> for.
             </h1>
-            <p
-              style={{
-                fontSize: "1.05rem",
-                color: "var(--text-secondary)",
-                lineHeight: 1.65,
-                maxWidth: "480px",
-                marginBottom: "2rem",
-              }}
-            >
-              Browse{" "}
-              <strong style={{ color: "var(--text-primary)" }}>
-                software engineering careers
-              </strong>{" "}
-              at 100+ real and active companies — from Indian startups to global
-              MNCs, fintech disruptors to AI labs.
+            <p className="lede">
+              A curated index of software engineering careers — startups, MNCs,
+              fintech, and AI labs — with a direct path to each official careers page.
             </p>
-            <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-              <a
-                href="#companies"
-                style={{
-                  padding: "11px 22px",
-                  background: "var(--accent)",
-                  color: "#fff",
-                  borderRadius: "8px",
-                  fontWeight: 600,
-                  fontSize: "0.9rem",
-                  textDecoration: "none",
-                  boxShadow: "0 2px 8px rgba(79,70,229,0.3)",
-                }}
-              >
-                Browse Companies
+            <div className="hero-actions">
+              <a className="btn btn-primary" href="#companies">
+                Browse companies
               </a>
-              <a
-                href="mailto:hello@justapply.dev"
-                style={{
-                  padding: "11px 22px",
-                  background: "transparent",
-                  color: "var(--text-primary)",
-                  border: "1.5px solid var(--border)",
-                  borderRadius: "8px",
-                  fontWeight: 500,
-                  fontSize: "0.9rem",
-                  textDecoration: "none",
-                }}
-              >
-                Submit a Company
-              </a>
+              <Link className="btn btn-ghost" href="/submit">
+                Submit a company
+              </Link>
             </div>
           </div>
 
-          {/* Right side: stats */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "1rem",
-            }}
-          >
+          <aside className="stat-index" aria-label="Directory totals">
             {stats.map((stat) => (
-              <div
-                key={stat.label}
-                style={{
-                  background: "var(--bg-card)",
-                  border: "1px solid var(--border)",
-                  borderRadius: "12px",
-                  padding: "1.5rem",
-                  textAlign: "center",
-                }}
-              >
-                <p
-                  style={{
-                    fontFamily: "'Playfair Display', Georgia, serif",
-                    fontSize: "2rem",
-                    fontWeight: 700,
-                    color: "var(--text-primary)",
-                    lineHeight: 1,
-                    marginBottom: "0.5rem",
-                  }}
-                >
-                  {stat.value}
-                </p>
-                <p
-                  style={{
-                    fontSize: "0.8rem",
-                    color: "var(--text-muted)",
-                    fontWeight: 500,
-                  }}
-                >
-                  {stat.label}
-                </p>
+              <div className="stat-row" key={stat.label}>
+                <span>{stat.label}</span>
+                <strong>{stat.value}</strong>
               </div>
             ))}
-          </div>
+          </aside>
         </section>
 
         {/* ── TRUSTED LOGOS strip ── */}
-        <section
-          style={{
-            borderTop: "1px solid var(--border-light)",
-            borderBottom: "1px solid var(--border-light)",
-            padding: "1.5rem 2rem",
-            background: "rgba(255,255,255,0.5)",
-            overflow: "hidden",
-          }}
-        >
-          <div
-            style={{
-              maxWidth: "1200px",
-              margin: "0 auto",
-              display: "flex",
-              alignItems: "center",
-              gap: "1rem",
-              flexWrap: "wrap",
-            }}
-          >
-            <span
-              style={{
-                fontSize: "0.78rem",
-                color: "var(--text-muted)",
-                fontWeight: 500,
-                whiteSpace: "nowrap",
-              }}
-            >
-              Featured companies:
-            </span>
+        <section className="featured-strip">
+          <div className="featured-row">
+            <span className="label">Featured</span>
             {[
               "google",
               "stripe",
@@ -260,144 +116,52 @@ export default function HomePage() {
               const c = companies.find((x) => x.slug === slug);
               if (!c) return null;
               return (
-                <span
-                  key={slug}
-                  style={{
-                    fontSize: "0.8rem",
-                    fontWeight: 600,
-                    color: "var(--text-secondary)",
-                    opacity: 0.75,
-                  }}
-                >
+                <Link key={slug} href={`/company/${slug}`} className="featured-link">
                   {c.name}
-                </span>
+                </Link>
               );
             })}
           </div>
         </section>
 
         {/* ── CATEGORIES SHOWCASE ── */}
-        <section
-          id="categories"
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            padding: "5rem 2rem 3rem",
-          }}
-        >
-          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <p
-              style={{
-                fontSize: "0.75rem",
-                fontWeight: 700,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: "var(--accent)",
-                marginBottom: "0.75rem",
-              }}
-            >
-              Browse by Category
-            </p>
-            <h2
-              style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
-                fontSize: "clamp(1.75rem, 3vw, 2.25rem)",
-                fontWeight: 700,
-                color: "var(--text-primary)",
-                marginBottom: "0.75rem",
-                letterSpacing: "-0.02em",
-              }}
-            >
-              Every kind of tech company, in one place.
-            </h2>
-            <p
-              style={{
-                fontSize: "0.95rem",
-                color: "var(--text-secondary)",
-                maxWidth: "500px",
-                margin: "0 auto",
-              }}
-            >
-              From seed-stage startups to trillion-dollar enterprises, across 8
-              industry verticals.
+        <section className="section" id="categories">
+          <div className="section-head">
+            <p className="kicker">Browse by category</p>
+            <h2>Every kind of tech company, in one place.</h2>
+            <p>
+              From seed-stage startups to global enterprises, across eight industry verticals.
             </p>
           </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-              gap: "1rem",
-            }}
-          >
+          <div className="category-grid">
             {categoryShowcase.map((cat) => (
-              <div
+              <Link
                 key={cat.label}
-                style={{
-                  background: "var(--bg-card)",
-                  border: "1px solid var(--border)",
-                  borderRadius: "12px",
-                  padding: "1.5rem",
-                  display: "flex",
-                  gap: "1rem",
-                  alignItems: "flex-start",
-                }}
+                href={`/category/${cat.label.toLowerCase()}`}
+                className="category-card"
               >
-                <span style={{ fontSize: "1.75rem" }}>{cat.emoji}</span>
-                <div>
-                  <p
-                    style={{
-                      fontWeight: 700,
-                      fontSize: "0.95rem",
-                      color: "var(--text-primary)",
-                      marginBottom: "0.25rem",
-                    }}
-                  >
-                    {cat.label}
-                  </p>
-                  <p
-                    style={{
-                      fontSize: "0.8rem",
-                      color: "var(--text-muted)",
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    {cat.desc}
-                  </p>
-                </div>
-              </div>
+                <span className="emoji" aria-hidden="true">{cat.emoji}</span>
+                <strong>{cat.label}</strong>
+                <p>{cat.desc}</p>
+                <span className="count">{categoryCounts[cat.label] ?? 0} companies</span>
+              </Link>
             ))}
           </div>
         </section>
 
         {/* ── COMPANY GRID ── */}
-        <section
-          id="companies"
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            padding: "2rem 2rem 5rem",
-          }}
-        >
-          <div style={{ marginBottom: "2rem" }}>
-            <h2
-              style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
-                fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
-                fontWeight: 700,
-                color: "var(--text-primary)",
-                marginBottom: "0.5rem",
-                letterSpacing: "-0.02em",
-              }}
-            >
-              All Companies
-            </h2>
-            <p style={{ fontSize: "0.9rem", color: "var(--text-muted)" }}>
-              {companies.length} companies · directly linking to official
-              careers pages
+        <section className="companies-wrap" id="companies">
+          <div className="companies-head">
+            <p className="kicker">The index</p>
+            <h2>All companies</h2>
+            <p>
+              {companies.length} curated companies, plus any you submit in this browser, with direct links to official careers pages.
             </p>
           </div>
-          <SearchFilter companies={companies} />
+          <Suspense fallback={<p style={{ textAlign: "center", color: "var(--text-muted)" }}>Loading companies…</p>}>
+            <SearchFilter companies={companies} />
+          </Suspense>
         </section>
       </main>
 
